@@ -19,9 +19,10 @@ export const metadata: Metadata = {
   description: "Express mobile repair services completed in under thirty minutes. Located beside Apollo Pharmacy in Yadiki. Call to enquire about phone sales, accessories, and repairs.",
   keywords: ["SP Mobiles", "Shasha Professionals", "Mobile Repair Yadiki", "Phone Shop Yadiki", "Anantapuram", "Andhra Pradesh", "Fast Mobile Repair"],
   authors: [{ name: "Shasha Professionals" }],
-  vsrification(
-    google: "google-site-verification: google4f44d51108fc7639.html",
-  ),
+  // FIXED: Corrected spelling and pulled the clean key out for Next.js to handle
+  verification: {
+    google: "AOD5E9p9xqa_8rYTLiFrNu3eICWQ9GUmimwf79LfO5w",
+  },
 };
 
 export default function RootLayout({
@@ -30,11 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${inter.variable} scroll-smooth`}
-    >
-      <meta name="google-site-verification" content="AOD5E9p9xqa_8rYTLiFrNu3eICWQ9GUmimwf79LfO5w" />
+    <html lang="en" className={`${outfit.variable} ${inter.variable} scroll-smooth`}>
+      {/* CLEANED: Removed the extra hardcoded meta tag from here so Next.js handles it purely via metadata above */}
       <body className="font-sans antialiased bg-zinc-950 text-zinc-50 overflow-x-hidden min-h-screen">
         {children}
       </body>
