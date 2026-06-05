@@ -137,7 +137,7 @@ export default function HomePage() {
           <img
             src="/photos/post_3906886071364045921_main_2le3ph.jpg"
             alt="SP Mobiles expert technician at work"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover sm:object-center object-right-top"
             onError={(e) => {
               e.currentTarget.src = profile.profilePicUrlHD;
             }}
@@ -375,7 +375,7 @@ export default function HomePage() {
                   setSelectedPost(post);
                   setActiveMediaIndex(0);
                 }}
-                className="group relative cursor-pointer rounded-2xl overflow-hidden bg-zinc-900 aspect-square shadow-lg hover:shadow-purple-900/20 hover:shadow-2xl transition-all duration-400 border border-zinc-800/60 hover:border-purple-500/30"
+                className="group relative cursor-pointer rounded-2xl overflow-hidden bg-zinc-900 aspect-square shadow-lg hover:shadow-purple-900/40 hover:shadow-2xl transition-all duration-400 border border-zinc-800/60 hover:border-purple-500/30 hover:glow-purple"
               >
                 {/* Media */}
                 <div className="absolute inset-0">
@@ -387,8 +387,12 @@ export default function HomePage() {
                   />
                 </div>
 
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Glow overlay on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: 'radial-gradient(ellipse at center, rgba(168, 85, 247, 0.2) 0%, transparent 70%)',
+                  }}
+                />
 
                 {/* Top badges */}
                 <div className="absolute top-3 right-3 flex gap-2">
