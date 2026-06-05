@@ -131,9 +131,9 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* HERO SECTION — Cinematic full-width highlighting the technician */}
-      <section className="relative w-full min-h-[92vh] flex flex-col justify-end overflow-hidden">
-        {/* Background — YOU working at the microscope repair station */}
+      {/* HERO SECTION — Premium Cinematic Experience */}
+      <section className="relative w-full min-h-[100vh] flex flex-col justify-end overflow-hidden">
+        {/* Background with enhanced overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="/photos/post_3906886071364045921_main_2le3ph.jpg"
@@ -143,99 +143,170 @@ export default function HomePage() {
               e.currentTarget.src = profile.profilePicUrlHD;
             }}
           />
-          {/* Cinematic overlays — strong on left (text side), lighter on right (so your face shows) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/50 to-transparent" />
+          {/* Enhanced cinematic overlays */}
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/60 to-zinc-950" />
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/95 via-zinc-950/50 to-transparent" />
+          {/* Ambient glow effects */}
+          <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-950/20 to-transparent" />
         </div>
 
-        {/* Floating thumbnails — top right, showing your work */}
-        <div className="absolute top-8 right-6 hidden lg:flex flex-col gap-3 z-10">
-          {[
-            { src: "/photos/post_3906886071364045921_img_1_ysjjhx.jpg", label: "At the bench" },
-            { src: "/photos/post_3911791825128738476_img_1_tthrnq.jpg", label: "Chip repair" },
-            { src: "/photos/post_3911116300408311785_main_jn6iob.jpg", label: "Shop display" },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 + i * 0.15, duration: 0.5 }}
-              className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl ring-1 ring-zinc-700/40 hover:ring-blue-500/40 hover:border-blue-400/30 transition-all duration-300"
-            >
-              <img src={item.src} alt={item.label} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
-            </motion.div>
-          ))}
+        {/* Scattered individual work showcase images - Desktop only */}
+        <div className="absolute hidden lg:block top-16 right-8 z-10">
+          <motion.div
+            initial={{ opacity: 0, x: 40, rotate: 5 }}
+            animate={{ opacity: 1, x: 0, rotate: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="w-32 h-32 rounded-2xl overflow-hidden border-2 border-blue-400/30 shadow-2xl shadow-blue-900/40 backdrop-blur-sm hover:border-blue-400/60 transition-all duration-300"
+          >
+            <img src="/photos/post_3906886071364045921_img_1_ysjjhx.jpg" alt="At the workbench" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </motion.div>
+        </div>
+
+        <div className="absolute hidden lg:block top-80 right-12 z-10">
+          <motion.div
+            initial={{ opacity: 0, x: 40, rotate: -5 }}
+            animate={{ opacity: 1, x: 0, rotate: -5 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-purple-400/30 shadow-2xl shadow-purple-900/40 backdrop-blur-sm hover:border-purple-400/60 transition-all duration-300"
+          >
+            <img src="/photos/post_3911791825128738476_img_1_tthrnq.jpg" alt="Chip repair work" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </motion.div>
+        </div>
+
+        <div className="absolute hidden lg:block bottom-64 right-20 z-10">
+          <motion.div
+            initial={{ opacity: 0, x: 40, rotate: 3 }}
+            animate={{ opacity: 1, x: 0, rotate: 3 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-indigo-400/30 shadow-2xl shadow-indigo-900/40 backdrop-blur-sm hover:border-indigo-400/60 transition-all duration-300"
+          >
+            <img src="/photos/post_3911116300408311785_main_jn6iob.jpg" alt="Shop display" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </motion.div>
         </div>
 
         {/* Hero content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 pb-16 pt-32 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 pb-20 pt-40 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-2xl"
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
           >
-            <div className="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm border border-zinc-700/60 px-3 py-1.5 rounded-full text-xs font-semibold text-zinc-300 w-fit mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Open Now · Yadiki, Andhra Pradesh</span>
-            </div>
-
-            {/* Big bold shop name */}
-            <h1 className="font-heading font-black text-5xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-none mb-4">
-              SP{" "}
-              <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
-                Mobiles
+            {/* Enhanced status badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center space-x-3 bg-gradient-to-r from-emerald-950/60 to-emerald-900/40 backdrop-blur-xl border border-emerald-400/40 px-4 py-2.5 rounded-full text-xs font-bold text-emerald-300 w-fit mb-8 shadow-lg shadow-emerald-900/30"
+            >
+              <span className="flex items-center space-x-2">
+                <span className="relative flex w-2.5 h-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span>Open Now</span>
               </span>
-              <span className="block text-2xl sm:text-3xl lg:text-4xl font-extrabold text-zinc-300 mt-2 tracking-wide">
+              <span className="text-emerald-400/60">•</span>
+              <span>Yadiki, Andhra Pradesh</span>
+            </motion.div>
+
+            {/* Enhanced main heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+            >
+              <h1 className="font-heading font-black text-6xl sm:text-7xl lg:text-8xl tracking-tighter text-white leading-none mb-2">
+                SP{" "}
+                <span className="bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-lg">
+                  Mobiles
+                </span>
+              </h1>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-200 tracking-wide mb-6">
                 Shasha Professionals
-              </span>
-            </h1>
+              </h2>
+            </motion.div>
 
-            <p className="text-zinc-300 text-lg leading-relaxed mb-8 max-w-xl">
-              Expert screen, battery &amp; charging port repairs — done in under{" "}
-              <span className="text-white font-bold">30 minutes</span>. Right beside Apollo Pharmacy, Yadiki.
-            </p>
+            {/* Enhanced description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+              className="text-zinc-300 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl font-light"
+            >
+              Expert <span className="text-blue-300 font-semibold">screen, battery & charging port</span> repairs — completed in under{" "}
+              <span className="text-white font-bold">30 minutes</span>. Premium quality service at{" "}
+              <span className="text-blue-300 font-semibold">unbeatable prices</span>. Right beside Apollo Pharmacy, Yadiki.
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* Enhanced CTA buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.7 }}
+              className="flex flex-col sm:flex-row gap-4 mb-12"
+            >
               <a
                 href={`tel:${siteConfig.phone}`}
-                className="flex items-center justify-center space-x-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold px-8 py-4 rounded-2xl shadow-2xl shadow-blue-900/40 transition-all duration-300 active:scale-95"
+                className="group flex items-center justify-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold px-8 py-4 rounded-2xl shadow-2xl shadow-blue-900/50 transition-all duration-300 active:scale-95 hover:shadow-blue-900/70"
               >
                 <Phone className="w-5 h-5 fill-white" />
-                <span>Call to Enquire · {siteConfig.formattedPhone}</span>
+                <span>Call Now · {siteConfig.formattedPhone}</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
                 href={siteConfig.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center space-x-3 bg-zinc-900/80 backdrop-blur-sm hover:bg-zinc-800 border border-zinc-700 text-zinc-100 font-bold px-8 py-4 rounded-2xl transition-all duration-300 active:scale-95"
+                className="group flex items-center justify-center space-x-3 bg-zinc-900/80 backdrop-blur-md hover:bg-zinc-800 border-2 border-emerald-400/40 hover:border-emerald-400/60 text-zinc-100 font-bold px-8 py-4 rounded-2xl transition-all duration-300 active:scale-95"
               >
                 <MessageSquare className="w-5 h-5 text-emerald-400" />
-                <span>WhatsApp Us</span>
+                <span>WhatsApp Message</span>
               </a>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Quick Stats bar */}
+          {/* Enhanced Quick Stats bar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-12 flex flex-wrap gap-x-10 gap-y-4"
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex flex-wrap gap-8 sm:gap-12"
           >
             {[
-              { value: "30 Min", label: "Average Repair Time" },
-              { value: profile.followersCount > 0 ? `${profile.followersCount}+` : "30+", label: "Instagram Followers" },
-              { value: "100%", label: "Customer Satisfaction" },
-            ].map((stat) => (
-              <div key={stat.label} className="flex flex-col">
-                <span className="font-heading font-black text-3xl text-white tracking-tight">{stat.value}</span>
-                <span className="text-xs text-zinc-400 mt-0.5 font-medium">{stat.label}</span>
-              </div>
+              { value: "30 Min", label: "Avg. Repair Time", icon: "⚡" },
+              { value: profile.followersCount > 0 ? `${profile.followersCount}+` : "30+", label: "Followers", icon: "📱" },
+              { value: "100%", label: "Satisfaction", icon: "⭐" },
+            ].map((stat, idx) => (
+              <motion.div 
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7 + idx * 0.1, duration: 0.6 }}
+                className="flex flex-col"
+              >
+                <span className="text-2xl mb-1">{stat.icon}</span>
+                <span className="font-heading font-black text-3xl sm:text-4xl text-white tracking-tight">{stat.value}</span>
+                <span className="text-xs sm:text-sm text-zinc-400 mt-1 font-medium">{stat.label}</span>
+              </motion.div>
             ))}
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center space-y-2"
+        >
+          <span className="text-xs text-zinc-400 font-medium tracking-widest uppercase">Scroll to explore</span>
+          <div className="flex flex-col space-y-1">
+            <div className="w-1 h-3 bg-gradient-to-b from-blue-400 to-transparent rounded-full"></div>
+            <div className="w-1 h-3 bg-gradient-to-b from-blue-400 to-transparent rounded-full opacity-60"></div>
+          </div>
+        </motion.div>
       </section>
 
       {/* CORE CAPABILITY SECTION */}
