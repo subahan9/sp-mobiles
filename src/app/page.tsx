@@ -26,6 +26,7 @@ import {
 import { siteConfig } from "@/config/site";
 import { services, testimonials, faqs } from "@/config/content";
 import { getProfile, getPosts, InstagramPost } from "@/utils/media";
+import { InstaCarousel } from "@/components/InstaCarousel";
 
 const MAPS_DIRECTIONS_URL =
   "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqBwgCEAAYgAQyCggAEEUYFhgeGDkyBwgBEAAYgAQyBwgCEAAYgAQyCAgDEAAYFhgeMggIBBAAGBYYHjIICAUQABgWGB4yCAgGEAAYFhgeMggIBxAAGBYYHjIICAgQABgWGB4yCAgJEAAYFhge0gEIOTUwNmowajeoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KQVvnoCBobY7MdcyGOH74rn8&daddr=beside+Apolo+Pharmacy,+Yadiki,+Andhra+Pradesh+515455";
@@ -362,78 +363,14 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Grid of Posts */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post, index) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05, duration: 0.4 }}
-                layoutId={`post-${post.id}`}
-                onClick={() => {
-                  setSelectedPost(post);
-                  setActiveMediaIndex(0);
-                }}
-                className="group relative cursor-pointer rounded-2xl overflow-hidden bg-zinc-900 aspect-square shadow-lg hover:shadow-purple-900/40 hover:shadow-2xl transition-all duration-400 border border-zinc-800/60 hover:border-purple-500/30 hover:glow-purple"
-              >
-                {/* Media */}
-                <div className="absolute inset-0">
-                  <img
-                    src={post.displayUrl}
-                    alt={post.caption || "Instagram update"}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Glow overlay on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: 'radial-gradient(ellipse at center, rgba(168, 85, 247, 0.2) 0%, transparent 70%)',
-                  }}
-                />
-
-                {/* Top badges */}
-                <div className="absolute top-3 right-3 flex gap-2">
-                  {post.type === "Video" && (
-                    <div className="w-7 h-7 rounded-full bg-zinc-950/80 border border-zinc-700 flex items-center justify-center text-white backdrop-blur-sm">
-                      <Play className="w-3 h-3 fill-white" />
-                    </div>
-                  )}
-                  {post.childPosts && post.childPosts.length > 1 && (
-                    <div className="px-1.5 py-0.5 rounded-md bg-zinc-950/80 border border-zinc-700 text-[10px] font-bold text-zinc-300 backdrop-blur-sm">
-                      1/{post.childPosts.length}
-                    </div>
-                  )}
-                </div>
-
-                {/* Hover content */}
-                <div className="absolute inset-x-0 bottom-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  {post.caption ? (
-                    <p className="text-white text-xs font-semibold line-clamp-2 leading-relaxed">
-                      {post.caption}
-                    </p>
-                  ) : (
-                    <p className="text-zinc-400 text-xs italic">Tap to view</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Load More */}
-          {hasMore && (
-            <div className="flex justify-center mt-10">
-              <button
-                onClick={() => setVisibleCount(v => v + POSTS_PER_PAGE)}
-                className="flex items-center space-x-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-purple-500/40 text-zinc-200 font-bold px-8 py-3.5 rounded-2xl transition-all duration-300 text-sm group"
-              >
-                <InstagramIcon className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                <span>Load More Posts</span>
-              </button>
-            </div>
-          )}
+          {/* Swipeable Carousel */}
+          <InstaCarousel 
+            posts={posts}
+            onPostClick={(post, mediaIndex) => {
+              setSelectedPost(post);
+              setActiveMediaIndex(mediaIndex);
+            }}
+          />
         </div>
       </section>
 
