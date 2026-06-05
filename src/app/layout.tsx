@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description: "Express mobile repair services completed in under thirty minutes. Located beside Apollo Pharmacy in Yadiki. Call to enquire about phone sales, accessories, and repairs.",
   keywords: ["SP Mobiles", "Shasha Professionals", "Mobile Repair Yadiki", "Phone Shop Yadiki", "Anantapuram", "Andhra Pradesh", "Fast Mobile Repair"],
   authors: [{ name: "Shasha Professionals" }],
+  vsrification(
+    google: "google-site-verification: google4f44d51108fc7639.html",
+  ),
 };
 
 export default function RootLayout({
