@@ -34,6 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${inter.variable} scroll-smooth`}
     >
+      <meta name="google-site-verification" content="AOD5E9p9xqa_8rYTLiFrNu3eICWQ9GUmimwf79LfO5w" />
       <body className="font-sans antialiased bg-zinc-950 text-zinc-50 overflow-x-hidden min-h-screen">
         {children}
       </body>
