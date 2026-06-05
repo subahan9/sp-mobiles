@@ -339,9 +339,9 @@ export default function HomePage() {
       </section>
 
       {/* INSTAGRAM POSTS SHOWCASE — directly under hero */}
-      <section id="showcase" className="py-20 border-b border-zinc-900">
+      <section id="showcase" className="py-28 border-t border-b border-zinc-800/80 bg-zinc-950/50">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
             <div>
               <span className="text-xs text-purple-400 font-bold uppercase tracking-widest">Real Updates</span>
               <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white mt-2">
@@ -363,7 +363,7 @@ export default function HomePage() {
           </div>
 
           {/* Grid of Posts */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post, index) => (
               <motion.div
                 key={post.id}
